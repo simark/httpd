@@ -1,0 +1,6 @@
+TRACEPOINT_EVENT(
+    apache,
+    apache_process_entry,
+    TP_ARGS(),
+    TP_FIELDS()
+ )

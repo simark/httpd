@@ -41,6 +41,8 @@
 #include "util_ebcdic.h"
 #include "ap_mpm.h"
 
+#include "tracepoints.h"
+
 #if APR_HAVE_UNISTD_H
 #include <unistd.h>
 #else
@@ -297,6 +299,8 @@ static process_rec *init_process(int *argc, const char * const * *argv)
     apr_pool_t *cntx;
     apr_status_t stat;
     const char *failed = "apr_app_initialize()";
+
+    tracepoint(apache, apache_process_entry);
 
     stat = apr_app_initialize(argc, argv, NULL);
     if (stat == APR_SUCCESS) {
